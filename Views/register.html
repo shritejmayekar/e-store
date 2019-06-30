@@ -1,0 +1,66 @@
+<nav class="navbar navbar-dark default-color justify-content-between">
+    <a class="navbar-brand" ui-sref="home">E-store</a>
+
+</nav>
+
+<div class="form-signin" style="margin-top: 1%">
+
+    <h5 class="card-header info-color white-text text-center py-4">
+        <strong>Sign up</strong>
+    </h5>
+
+    <!--Card content-->
+    <div class="card-body px-lg-5 pt-0">
+
+        <!-- Form -->
+        <form class="text-center" style="color: #757575;">
+
+            <div class="md-form">
+                <input type="text" id="materialRegisterFormUsername" class="form-control" ng-model="Username">
+                <label for="materialRegisterFormUsername">Username</label>
+            </div>
+
+            <!-- E-mail -->
+            <div class="md-form mt-0">
+                <input type="email" id="materialRegisterFormEmail" class="form-control" ng-model="Email">
+                <label for="materialRegisterFormEmail">E-mail</label>
+            </div>
+
+            <!-- Password -->
+            <div class="md-form">
+                <input type="password" id="materialRegisterFormPassword" class="form-control"
+                    aria-describedby="materialRegisterFormPasswordHelpBlock" ng-model="Password">
+                <label for="materialRegisterFormPassword">Password</label>
+                <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                    At least 8 characters and 1 digit
+                </small>
+            </div>
+
+            <!-- Phone number -->
+            <!-- <div class="md-form">
+                <input type="password" id="materialRegisterFormPhone" class="form-control"
+                    aria-describedby="materialRegisterFormPhoneHelpBlock">
+                <label for="materialRegisterFormPhone">Phone number</label>
+                <small id="materialRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+                    Optional - for two step authentication
+                </small>
+            </div> -->
+
+            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" ng-click="register()">Sign
+                up</button>
+
+
+            <p>Already Registered?
+                <a ui-sref="login">Sign In</a>
+            </p>
+
+
+
+
+        </form>
+        <!-- Form -->
+
+    </div>
+
+</div>
+<!-- Material form register -->

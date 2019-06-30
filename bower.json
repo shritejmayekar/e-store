@@ -1,0 +1,28 @@
+{
+  "name": "E-store",
+  "authors": [
+    "shritej mayekar<shritejmayekar69@gmail.com>"
+  ],
+  "description": "To add todo list and notes",
+  "main": "app.js",
+  "license": "MIT",
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.7.8",
+    "angular-ui-router": "^1.0.22",
+    "bootstrap": "^4.3.1",
+    "satellizer": "^0.15.5",
+    "angular-resource": "^1.7.8",
+    "angular-route": "^1.7.8",
+    
+  }
+  
+}

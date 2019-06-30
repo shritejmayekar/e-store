@@ -1,0 +1,67 @@
+<nav class="navbar navbar-dark default-color justify-content-between">
+        <a class="navbar-brand" ui-sref="home">E-store</a>
+
+        <div class="welcome">
+                Hello, {{user ? user :'Guest'}}
+    
+        </div>
+    
+    
+        <ul class="nav list-inline" style="list-style-type: none;background: wheat;width: 9em;">
+            <li  class="list-inline-item pt-0 pr-1 pb-0 pl-0" ng-if="user">  
+                <a ng-click="logout()"> <i class=" material-icons">logout</i></a> 
+            </li>
+            <li class="list-inline-item">
+                <a ui-sref="cart" class="router-link-active"><i class="fa fa-shopping-cart"></i> Cart ({{cartItemCount}})</a>
+            </li>
+        </ul>
+        </nav>
+
+    <div class="container">
+            <div class="card shopping-cart">
+                     <div class="card-header bg-dark text-light">
+                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                         Orders
+                         <a  class="btn btn-outline-info btn-sm pull-right" ui-sref="home">Continue shopping</a>
+                         <div class="clearfix"></div>
+                     </div>
+                     
+                     <div class="card-body">
+                             <!-- PRODUCT -->
+                             <div class="row" ng-repeat="cart in productList">
+                                 <div class="col-12 col-sm-12 col-md-2 text-center">
+                                     Order No.
+                                         <!-- <img class="img-responsive" src="{{cart.image}}" alt="prewiew" width="120" height="80"> -->
+                                 </div>
+                                 <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
+                                     <h4 class="product-name"><strong>{{cart['fields'].order}}</strong></h4>
+                                     <!-- <h4>
+                                         <small>{{cart['fields'].description}}</small>
+                                     </h4> -->
+                                 </div>
+                                 <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
+                                     <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
+                                         <h6><strong>{{cart['fields'].price}} <span class="text-muted">x {{cart['fields'].quantity}} = &#8377; {{cart['fields'].price * cart['fields'].quantity }}</span></strong></h6>
+
+
+                                     </div>
+                                    
+                                    
+                                     
+                                 </div>
+                             </div>
+                             <hr>
+                             <!-- END PRODUCT -->
+                          
+                     </div>
+                     <!-- <div class="card-footer">
+                         
+                         <div class="pull-right" style="margin: 10px">
+                             <a  class="btn btn-success pull-right"  ui-sref="checkout">Checkout</a>
+                             <div class="pull-right" style="margin: 5px">
+                                 Total price: <b>{{ getTotal() }}</b>
+                             </div>
+                         </div>
+                     </div> -->
+                 </div>
+         </div>

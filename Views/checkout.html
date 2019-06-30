@@ -1,0 +1,80 @@
+<nav class="navbar navbar-dark default-color justify-content-between">
+        <a class="navbar-brand" ui-sref="home">E-store</a>
+        <a  ui-sref="order" class="welcome"> My Orders</a>
+
+        <div class="welcome">
+                Hello, {{user ? user :'Guest'}}
+    
+        </div>
+    
+    
+        <ul class="nav list-inline" style="list-style-type: none;background: wheat;width: 9em;">
+            <li  class="list-inline-item pt-0 pr-1 pb-0 pl-0" ng-if="user">  
+                <a ng-click="logout()"> <i class=" material-icons">logout</i></a> 
+            </li>
+            <li class="list-inline-item">
+                <a ui-sref="cart" class="router-link-active"><i class="fa fa-shopping-cart"></i> Cart ({{cartItemCount}})</a>
+            </li>
+        </ul>
+        </nav>
+
+
+        <div class="form-signin" style="margin-top:1%">
+
+        <h5 class="card-header info-color white-text text-center py-4">
+          <strong> {{ placeOrderNumber ? 'Order Placed':'Checkout Form'}}</strong>
+        </h5>
+      
+        <!--Card content-->
+        <div class="card-body px-lg-5 pt-0">
+        <p ng-show="!showForm">
+            Thank You for Placing Order ! Your Order no. is {{placeOrderNumber}}
+        </p>
+          <!-- Form -->
+          <form class="text-center" style="color: #757575;" ng-submit="placeOrder()" ng-show="showForm">
+      
+            <!-- Email -->
+            <div class="md-form">
+              <input type="text" id="materialLoginFormUsername" class="form-control" ng-model="firstname" required>
+              <label for="materialLoginFormUsername">Username</label>
+            </div>
+      
+            <!-- Password -->
+            <div class="md-form">
+              <input type="text" id="materialLoginFormlastname" class="form-control" ng-model="lastname" required>
+              <label for="materialLoginFormlastname">lastname</label>
+            </div>
+            <div class="md-form">
+                <input type="email" id="materialLoginFormEmail" class="form-control" ng-model="email" required>
+                <label for="materialLoginFormEmail">Email</label>
+              </div>
+              <div class="md-form">
+                  <textarea cols="30" rows="5"  ng-model="address" id="materialLoginFormAddrees" class="form-control" required>
+
+                  </textarea>
+                  <label for="materialLoginFormAddrees">Address</label> 
+
+                <!-- <input type="text" id="materialLoginFormEmail" class="form-control" ng-model="address">
+                <label for="materialLoginFormEmail">Email</label> -->
+              </div>
+              <div class="md-form">
+                    <input type="text" id="materialLoginFormCity" class="form-control" ng-model="city" required>
+                    <label for="materialLoginFormCity">City</label>
+              </div>
+              <div class="md-form">
+                    <input type="text" id="materialLoginFormPincode" class="form-control" ng-model="postal_code" required>
+                    <label for="materialLoginFormPincode">Pincode</label>
+            </div>
+      
+            
+            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" >Place Order</button>
+      
+            
+            
+      
+          </form>
+          <!-- Form -->
+      
+        </div>
+      
+      </div>

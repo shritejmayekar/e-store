@@ -1,0 +1,82 @@
+<nav class="navbar navbar-dark default-color justify-content-between">
+        <a class="navbar-brand" ui-sref="home">E-store</a>
+        <a  ui-sref="order" class="welcome"><i class="fa fa-shopping-cart" aria-hidden="true"></i> My Orders</a>
+
+        <div class="welcome">
+                Hello, {{user ? user :'Guest'}}
+    
+        </div>
+    
+    
+        <ul class="nav list-inline" style="list-style-type: none;background: wheat;width: 9em;">
+            <li  class="list-inline-item pt-0 pr-1 pb-0 pl-0" ng-if="user">  
+                <a ng-click="logout()"> <i class=" material-icons">logout</i></a> 
+            </li>
+            <li class="list-inline-item">
+                <a ui-sref="cart" class="router-link-active"><i class="fa fa-shopping-cart"></i> Cart ({{cartItemCount}})</a>
+            </li>
+        </ul>
+        </nav>
+
+    <div class="container">
+            <div class="card shopping-cart">
+                     <div class="card-header bg-dark text-light">
+                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                         Shipping cart
+                         <a  class="btn btn-outline-info btn-sm pull-right" ui-sref="home">Continue shopping</a>
+                         <div class="clearfix"></div>
+                     </div>
+                     <div ng-if="cartItemCount==0">
+                            <h4 class="product-name" style="text-align: center"><strong> Your Cart is Empty</strong></h4>
+
+                    </div>
+                     <div class="card-body">
+                             <!-- PRODUCT -->
+                             <div class="row" ng-repeat="cart in cartItem">
+                                 <div class="col-12 col-sm-12 col-md-2 text-center">
+                                         <img class="img-responsive" src="{{cart.image}}" alt="prewiew" width="120" height="80">
+                                 </div>
+                                 <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
+                                     <h4 class="product-name"><strong>{{cart.name}}</strong></h4>
+                                     <h4>
+                                         <small>{{cart.description}}</small>
+                                     </h4>
+                                 </div>
+                                 <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
+                                     <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
+                                         <h6><strong>{{cart.price}} <span class="text-muted">x</span></strong></h6>
+
+                                         <button type="button" class="btn btn-primary btn-sm" ng-click="updateToCart(cart,quantity)">Update Cart</button>
+
+                                     </div>
+                                    
+                                     <div class="col-4 col-sm-4 col-md-4">
+                                         <div class="quantity">
+                                             <input type="button" value="+" class="plus">
+                                             <input type="number" step="1" max="99" min="1" value={{cart.quantity}} title="Qty" class="qty"
+                                                    size="4" ng-model="quantity">
+                                             <input type="button" value="-" class="minus">
+                                         </div>
+                                     </div>
+                                     <div class="col-2 col-sm-2 col-md-2 text-right">
+                                         <button type="button" class="btn btn-outline-danger btn-xs" ng-click="removeToCart(cart)">
+                                             <i class="fa fa-trash" aria-hidden="true"></i>
+                                         </button>
+                                     </div>
+                                 </div>
+                             </div>
+                             <hr>
+                             <!-- END PRODUCT -->
+                          
+                     </div>
+                     <div class="card-footer">
+                         
+                         <div class="pull-right" style="margin: 10px">
+                             <a  class="btn btn-success pull-right"  ui-sref="checkout">Checkout</a>
+                             <div class="pull-right" style="margin: 5px">
+                                 Total price: <b>&#8377; {{ getTotal() }}</b>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+         </div>

@@ -1,0 +1,38 @@
+<nav class="navbar navbar-dark default-color justify-content-between">
+    <a class="navbar-brand" ui-sref="home">E-store</a>
+    <a  ui-sref="order" class="welcome"><i class="fa fa-shopping-cart" aria-hidden="true"></i> My Orders</a>
+
+    <div class="welcome">
+            Hello, {{user ? user :'Guest'}}
+
+    </div>
+
+
+    <ul class="nav list-inline" style="list-style-type: none;background: wheat;width: 9em;">
+        <li  class="list-inline-item pt-0 pr-1 pb-0 pl-0" ng-if="user">  
+            <a ng-click="logout()"> <i class=" material-icons">logout</i></a> 
+        </li>
+        <li class="list-inline-item">
+            <a ui-sref="cart" class="router-link-active"><i class="fa fa-shopping-cart"></i> Cart ({{cartItemCount}})</a>
+        </li>
+    </ul>
+    </nav>
+   
+<div class="container">
+
+
+    <div class="card-columns" style="margin-top: 50px">
+        <div class="card" ng-repeat="product in productList">
+            <img class="card-img-top" src={{product.image}} alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{product.name}}</h5>
+                <p class="card-text">{{product.description}}</p>
+                <p class="card-text">&#8377; {{product.price}}
+                    
+                </p>
+
+                <button type="button" class="btn btn-primary btn-sm" ng-click="addToCart(product,1)">Add to
+                    Cart</button>
+            </div>
+
+        </div>
